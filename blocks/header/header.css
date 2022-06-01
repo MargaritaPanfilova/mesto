@@ -2,4 +2,7 @@
   max-width: 880px;
   min-height: 74px;
   margin: 45px auto 40px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #545454;
 }
