@@ -1,0 +1,15 @@
+.element {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+  min-height: 361px;
+  margin-right: 17px;
+  margin-bottom: 20px;
+  border-radius: 2%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.element:nth-child(3n+3) {
+  margin-right: 0;
+}
