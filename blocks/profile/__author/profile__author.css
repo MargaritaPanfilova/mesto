@@ -2,3 +2,9 @@
   display: flex;
   flex-direction: row;
 }
+
+@media screen and (max-width: 767px) {
+  .profile__author {
+    margin: 5px 38px 8px 72px;
+  }
+}
