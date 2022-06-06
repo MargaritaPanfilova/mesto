@@ -5,6 +5,7 @@
 
 @media screen and (max-width: 767px) {
   .profile__author {
-    margin: 5px 38px 8px 72px;
+    margin: 5px 8px 14px 40px;
+    justify-content: center;
   }
 }

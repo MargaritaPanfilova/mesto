@@ -17,6 +17,10 @@
   .element:nth-child(3n+3) {
     margin-right: 17px;
   }
+
+  .element:nth-child(2n+2) {
+    margin-right: 0px;
+  }
 }
 
 @media screen and (max-width: 1023px) {
