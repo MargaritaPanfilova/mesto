@@ -12,3 +12,31 @@
 .element:nth-child(3n+3) {
   margin-right: 0;
 }
+
+@media screen and (max-width: 1279px) {
+  .element:nth-child(3n+3) {
+    margin-right: 17px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .element:nth-child(2n+2) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .element {
+    margin: 0 0 20px;
+  }
+
+  .element:nth-child(3n+3) {
+    margin-right: 0;
+  }
+
+  .element:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+

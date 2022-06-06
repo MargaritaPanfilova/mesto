@@ -17,5 +17,6 @@
     width: calc(100% - 38px);
     flex-direction: column;
     align-items: center;
+    margin: 0 auto 36px;
   }
 }
