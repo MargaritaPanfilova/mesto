@@ -5,16 +5,16 @@ const popupEditButton = document.querySelector('.profile__edit-button');
 const popupCloseButton = document.querySelector('.popup__close-button');
 
 const profileName = profile.querySelector('.profile__name');
-const profileProfession = profile.querySelector('.profile__profession');
+const profileAbout = profile.querySelector('.profile__about');
 
 const inputName = popup.querySelector('.popup__input_value_name');
-const inputProfession = popup.querySelector('.popup__input_value_profession');
+const inputAbout = popup.querySelector('.popup__input_value_about');
 
 // Функция открытия popup
 popupEditButton.addEventListener('click', function() {
   popup.classList.remove('popup_hidden');
   inputName.value = profileName.textContent;
-  inputProfession.value = profileProfession.textContent;
+  inputAbout.value = profileAbout.textContent;
 });
 
 // Функция закрытия popup
