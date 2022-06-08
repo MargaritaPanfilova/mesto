@@ -13,29 +13,34 @@ let nameInput = formElement.querySelector('.popup__input_value_name');
 let aboutInput = formElement.querySelector('.popup__input_value_about');
 
 // Открытие popup
-popupEditButton.addEventListener('click', function() {
+function openEdit() {
   popup.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-});
+};
 
 // Закрытие popup
-popupCloseButton.addEventListener('click', function() {
+function closeEdit() {
   popup.classList.remove('popup_opened')
-});
+};
 
 // Закрытие popup при нажатии на любое место, кроме самого popup
-popup.addEventListener('click', function(e) {
+function closePopup(e) {
   if (e.target === e.currentTarget) {
       popup.classList.remove('popup_opened');
   }
-});
+};
 
 // Функция submit
 function formSubmitHandler (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
+
+  closeEdit();
 }
 
-formElement.addEventListener('click', formSubmitHandler);
+popupEditButton.addEventListener('click', openEdit);
+popupCloseButton.addEventListener('click', closeEdit);
+popup.addEventListener('click', closePopup);
+formElement.addEventListener('submit', formSubmitHandler);

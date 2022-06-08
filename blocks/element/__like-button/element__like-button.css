@@ -11,6 +11,6 @@
 }
 
 .element__like-button:hover {
-  opacity: .6;
+  opacity: .5;
   transition-duration: 1s;
 }
