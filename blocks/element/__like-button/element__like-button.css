@@ -6,6 +6,7 @@
   background-size: cover;
   cursor: pointer;
   align-self: center;
+  transition: opacity 0.5s;
   background-color: #fff;
   border: none;
   padding: 0;
@@ -13,5 +14,4 @@
 
 .element__like-button:hover {
   opacity: .5;
-  transition-duration: 1s;
 }

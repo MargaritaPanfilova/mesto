@@ -6,6 +6,7 @@
   background-color: #000;
   box-sizing: border-box;
   background-position: center;
+  transition: opacity 0.5s;
   border: 2px solid #fff;
   margin: 36px 0 0 auto;
   cursor: pointer;
@@ -13,7 +14,6 @@
 
 .profile__add-button:hover {
   opacity: .6;
-  transition-duration: 1s;
 }
 
 @media screen and (max-width: 767px) {
