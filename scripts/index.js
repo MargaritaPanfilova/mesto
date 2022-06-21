@@ -28,18 +28,17 @@ const initialCards = [
 ];
 
 // Доступ к DOM элементам profile и popup
-const popup = document.querySelector('.popup');
-const profile = document.querySelector('.profile');
-const popupAuthor = document.querySelector('#popup-author');
-const popupElement = document.querySelector('#popup-element');
-const popupPhoto = document.querySelector('#popup-photo');
+const popupAddProfile = document.querySelector('.popup_author');
+const popupAuthor = document.querySelector('.popup_author');
+const popupElement = document.querySelector('.popup_element');
+const popupPhoto = document.querySelector('.popup_photo');
 
 // Доступ к кнопкам edit, add, close
-const profileEditButton = profile.querySelector('.profile__edit-button');
-const profileAddButton = profile.querySelector('.profile__add-button');
-const closeButtonAuthor = popupAuthor.querySelector('#popup__close-button-author');
-const closeButtonElement = popupElement.querySelector('#popup__close-button-element');
-const closeButtonPhoto = popupPhoto.querySelector('#popup__close-button-photo');
+const profileEditButton = document.querySelector('.profile__edit-button');
+const profileAddButton = document.querySelector('.profile__add-button'); 
+const closeButtonAuthor = popupAuthor.querySelector('.popup__close-button-author');
+const closeButtonElement = popupElement.querySelector('.popup__close-button-element');
+const closeButtonPhoto = popupPhoto.querySelector('.popup__close-button-photo');
 
 // Доступ к информации о пользователе
 const profileName = profile.querySelector('.profile__name');
@@ -51,11 +50,13 @@ const popupCaption = popupPhoto.querySelector('.popup__caption');
 
 // Доступ к полям ввода
 const popupForm = popupAuthor.querySelector ('.popup__form');
-const nameInput = popupAuthor.querySelector('.popup__input_value_name');
-const aboutInput = popupAuthor.querySelector('.popup__input_value_about');
+const popupEditForm = document.querySelector('.popup__form_edit');
+const popupAddForm = document.querySelector('.popup__form_add');
+const nameInput = popupEditForm .querySelector('.popup__input_value_name');
+const aboutInput = popupEditForm .querySelector('.popup__input_value_about');
 const popupFormElement = popupElement.querySelector('.popup__form-element');
-const titleInput = popupElement.querySelector('.popup__input_value_title');
-const titleUrl = popupElement.querySelector('.popup__input_value_url');
+const titleInput = popupAddForm.querySelector('.popup__input_value_title');
+const titleUrl = popupAddForm.querySelector('.popup__input_value_url');
 
 // Доступ к секции elements
 const elements = document.querySelector('.elements');

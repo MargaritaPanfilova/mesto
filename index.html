@@ -77,31 +77,31 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup" id="popup-author">
+  <div class="popup popup_author">
     <div class="popup__container">
-      <button class="popup__close-button" id="popup__close-button-author" type="button"></button>
+      <button class="popup__close-button popup__close-button-author" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" name="popup-form">
+      <form class="popup__form popup__form_edit" name="popup-form-edit">
         <input class="popup__input popup__input_value_name" name="name" placeholder="Имя" type="text">
         <input class="popup__input popup__input_value_about" name="about" placeholder="О себе" type="text">
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <div class="popup" id="popup-element">
+  <div class="popup popup_element">
     <div class="popup__container">
-      <button class="popup__close-button" id="popup__close-button-element" type="button"></button>
+      <button class="popup__close-button popup__close-button-element" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form-element" name="popup-form">
+      <form class="popup__form popup__form_add" name="popup-form_add">
         <input class="popup__input popup__input_value_title" name="title" placeholder="Название" type="text">
         <input class="popup__input popup__input_value_url" name="url" placeholder="Ссылка на картинку" type="url">
         <button class="popup__submit-button" type="submit">Создать</button>
       </form>
     </div>
   </div>
-  <div class="popup popup_photo" id="popup-photo">
+  <div class="popup popup_photo">
     <figure class="popup__figure">
-      <button class="popup__close-button" id="popup__close-button-photo" type="button"></button>
+      <button class="popup__close-button popup__close-button-photo" type="button"></button>
       <img class="popup__image" src="#" alt>
       <figcaption class="popup__caption"></figcaption>
     </figure>
