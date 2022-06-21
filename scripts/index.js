@@ -34,7 +34,7 @@ const popupAuthor = document.querySelector('#popup-author');
 const popupElement = document.querySelector('#popup-element');
 const popupPhoto = document.querySelector('#popup-photo');
 
-// Доступ к кнопкам edit, close, add
+// Доступ к кнопкам edit, add, close
 const profileEditButton = profile.querySelector('.profile__edit-button');
 const profileAddButton = profile.querySelector('.profile__add-button');
 const closeButtonAuthor = popupAuthor.querySelector('#popup__close-button-author');
