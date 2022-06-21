@@ -77,35 +77,46 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <div class="popup popup__edit-form">
+  <div class="popup" id="popup-author">
     <div class="popup__container">
-      <button class="popup__close-button popup__close-button_edit" type="button"></button>
+      <button class="popup__close-button" id="popup__close-button-author" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__form-edit" name="popup-edit-form">
+      <form class="popup__form" name="popup-form">
         <input class="popup__input popup__input_value_name" name="name" placeholder="Имя" type="text">
         <input class="popup__input popup__input_value_about" name="about" placeholder="О себе" type="text">
         <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <div class="popup popup_add-form">
+  <div class="popup" id="popup-element">
     <div class="popup__container">
-      <button class="popup__close-button popup__close-button_add" type="button"></button>
+      <button class="popup__close-button" id="popup__close-button-element" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form-add" name="popup-add-form">
-        <input class="popup__input popup__input_value_title" name="title" placeholder="Наименование" type="text">
-        <input class="popup__input popup__input_value_url" name="url" placeholder="Ссылка" type="url">
+      <form class="popup__form-element" name="popup-form">
+        <input class="popup__input popup__input_value_title" name="title" placeholder="Название" type="text">
+        <input class="popup__input popup__input_value_url" name="url" placeholder="Ссылка на картинку" type="url">
         <button class="popup__submit-button" type="submit">Создать</button>
       </form>
     </div>
   </div>
-  <div class="popup popup_photo">
+  <div class="popup popup_photo" id="popup-photo">
     <figure class="popup__figure">
-      <button class="popup__close-button popup__close-button_photo" type="button"></button>
+      <button class="popup__close-button" id="popup__close-button-photo" type="button"></button>
       <img class="popup__image" src="#" alt>
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
+  <template class="element-template">
+    #document-fragment
+      <article class="element">
+        <button class="element__delete-button" type="button"></button>
+        <div class="element__image" style="background-image: url('')"></div>
+        <div class="element__group">
+          <h2 class="element__title"></h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
