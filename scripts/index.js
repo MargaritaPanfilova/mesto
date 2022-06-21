@@ -111,7 +111,7 @@ function createElement(item) {
 
 // Отрисовка элемента
 function renderElement() {
-  const elementList = initialElements.map((item) => {
+  const elementList = initialElement.map((item) => {
     return createCard(item);
   });
   elements.append(...elementList);
