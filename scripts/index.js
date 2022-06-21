@@ -28,6 +28,7 @@ const initialCards = [
 ];
 
 // Доступ к DOM элементам profile и popup
+const popup = document.querySelector('.popup');
 const profile = document.querySelector('.profile');
 const popupAuthor = document.querySelector('#popup-author');
 const popupElement = document.querySelector('#popup-element');
@@ -64,7 +65,7 @@ const elementTemplate = document.querySelector('.element-template');
 
 // Открытие всех popup
 function openPopup(popup) {
-  popup.classList.remove('popup_opened');
+  popup.classList.add('popup_opened');
 }
 
 // Закрытие всех popup
