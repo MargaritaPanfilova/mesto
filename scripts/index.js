@@ -27,42 +27,29 @@ const initialCards = [
   }
 ];
 
-// Доступ к DOM элементам profile и popup
-const popupAddProfile = document.querySelector('.popup_author');
-const popupAuthor = document.querySelector('.popup_author');
-const popupElement = document.querySelector('.popup_element');
+const popupAddElement = document.querySelector('.popup_element');
+const addButton = document.querySelector('.profile__add-button');
+const addCloseButton = document.querySelector('.popup__close-button-element');
+const addForm = document.querySelector('.popup__form_add');
+const titleInput = addForm.querySelector('.popup__input_value_title');
+const urlInput = addForm.querySelector('.popup__input_value_url');
+
+const popupEditProfile = document.querySelector('.popup_profile');
+const popupEditButton = document.querySelector('.profile__edit-button');
+const popupCloseButton = document.querySelector('.popup__close-button-profile');
+const formEdit = document.querySelector('.popup__form_edit');
+const nameInput = formEdit.querySelector('.popup__input_value_name');
+const aboutInput = formEdit.querySelector('.popup__input_value_about');
+const profileName = document.querySelector('.profile__name');
+const profileAbout = document.querySelector('.profile__about');
+
 const popupPhoto = document.querySelector('.popup_photo');
+const popupImage = document.querySelector('.popup__image');
+const popupCaption = document.querySelector('.popup__caption');
+const photoCloseButton = document.querySelector('.popup__close-button-photo');
 
-// Доступ к кнопкам edit, add, close
-const profileEditButton = document.querySelector('.profile__edit-button');
-const profileAddButton = document.querySelector('.profile__add-button'); 
-const closeButtonAuthor = popupAuthor.querySelector('.popup__close-button-author');
-const closeButtonElement = popupElement.querySelector('.popup__close-button-element');
-const closeButtonPhoto = popupPhoto.querySelector('.popup__close-button-photo');
-
-// Доступ к информации о пользователе
-const profileName = profile.querySelector('.profile__name');
-const profileAbout = profile.querySelector('.profile__about');
-
-// Доступ к элементу и его названию в popup
-const popupImage = popupPhoto.querySelector('.popup__image');
-const popupCaption = popupPhoto.querySelector('.popup__caption');
-
-// Доступ к полям ввода
-const popupForm = popupAuthor.querySelector ('.popup__form');
-const popupEditForm = document.querySelector('.popup__form_edit');
-const popupAddForm = document.querySelector('.popup__form_add');
-const nameInput = popupEditForm .querySelector('.popup__input_value_name');
-const aboutInput = popupEditForm .querySelector('.popup__input_value_about');
-const popupFormElement = popupElement.querySelector('.popup__form-element');
-const titleInput = popupAddForm.querySelector('.popup__input_value_title');
-const titleUrl = popupAddForm.querySelector('.popup__input_value_url');
-
-// Доступ к секции elements
+const templateElement = document.querySelector('.element-template').content;
 const elements = document.querySelector('.elements');
-
-// Доступ к шаблону элемента
-const elementTemplate = document.querySelector('.element-template');
 
 // Открытие всех popup
 function openPopup(popup) {
@@ -75,82 +62,32 @@ function closePopup(popup) {
 }
 
 // Открытие popup profile
-function openEditProfile() {
-  openPopup(popupAuthor);
+function openEdit() {
+  openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
 };
 
-// Добавление элемента и закрытие popup photo
-function togglePopupPhoto(evt) {
-  openPopup(popupPhoto);
-  popupImage.src = evt.target.style.backgroundImage
-    .slice(4, -1)
-    .replace(/(url\(|\)|")/g, "");
-  popupCaption.innerText =
-    evt.target.parentNode.querySelector('.element__title').innerText;
-  popupImage.alt = popupCaption.innerText;
-}
+// Закрытие popup
+function closeEdit() {
+  popup.classList.remove('popup_opened')
+};
 
-// Создание элемента
-function createElement(item) {
-  const elementItem = elementTemplate.querySelector('.element').cloneNode(true);
-  elementItem.querySelector('.element__title').innerText = item.name;
-  elementItem.querySelector('.element__image').style.backgroundImage = `url(${item.link})`;
-  elementItem
-    .querySelector('.element__delete-button')
-    .addEventListener('click', () => deleteItem(elementItem));
-  elementItem
-    .querySelector('.element__like-button')
-    .addEventListener('click', (e) =>
-      e.target.classList.toggle('.element__like-button_active'));
-  elementItem
-    .querySelector('.element__image')
-    .addEventListener('click', togglePopupPhoto);
+// Закрытие popup при нажатии на любое место, кроме самого popup
+function closePopup(e) {
+  if (e.target === e.currentTarget) {
+      popup.classList.remove('popup_opened');
+  }
+};
 
-  return elementItem;
-}
-
-// Отрисовка элемента
-function renderElement() {
-  const elementList = initialCards.map((item) => {
-    return createElement(item);
-  });
-  elements.append(...elementList);
-}
-
-// Удаление элемента
-function deleteItem(item) {
-  item.remove()
-}
-
-// Функция submit профиля
-function handleProfileFormSubmit(evt) {
+// Функция submit
+function formSubmitHandler (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
 
-  closePopup(popupAuthor);
+  closeEdit();
 }
 
-// Функция submit карточки
-function handleImageFormSubmit(evt) {
-  evt.preventDefault();
-  const element = createElement({
-    name: titleInput.value,
-    link: urlInput.value,
-  });
-  elements.prepend(element);
-  closePopup(popupElement);
-  popupFormElement.reset();
-}
+popupEditButton.addEventListener('click', openEdit);
 
-renderElement();
-
-profileEditButton.addEventListener('click', openEditProfile);
-profileAddButton.addEventListener('click', () => openPopup(popupElement));
-closeButtonAuthor.addEventListener('click', () => closePopup(popupAuthor));
-closeButtonElement.addEventListener('click', () => closePopup(popupElement));
-closeButtonPhoto.addEventListener('click', () => closePopup(popupPhoto));
-popupForm.addEventListener('submit', handleProfileFormSubmit);
-popupFormElement.addEventListener('submit', handleImageFormSubmit);
