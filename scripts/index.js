@@ -37,7 +37,7 @@ const aboutInput = formEdit.querySelector('.popup__input_value_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 
-// Переменные редактирования карточки
+// Переменные добавления карточки
 const popupAddElement = document.querySelector('.popup_element');
 const addButton = document.querySelector('.profile__add-button');
 const addCloseButton = document.querySelector('.popup__close-button-element');
@@ -93,7 +93,7 @@ function handleDeleteElement(evt) {
 //Добавление element в html
 function prependToSection (title, link) {
   const newElement = createElement({name:title, link:link});
-  elementsSection.prepend(newElement);
+  newElement.prepend;
 }
 
 // Добавление нового элемента
@@ -114,18 +114,18 @@ function handleOpenPhoto (image, caption) {
 
 // Создание элемента
 function createElement(item) {
-  const element = templateElement.querySelector('.element').cloneNode(true);
-  const elementImage = element.querySelector('.element__image');
-  const elementTitle = element.querySelector('.element__title');
-  const elementLike = element.querySelector('.element__like-button');
-  const elementDelete = element.querySelector('.element__delete-button');
+  const elementItem = templateElement.querySelector('.element').cloneNode(true);
+  const elementImage = elementItem.querySelector('.element__image');
+  const elementTitle = elementItem.querySelector('.element__title');
+  const elementLike = elementItem.querySelector('.element__like-button');
+  const elementDelete = elementItem.querySelector('.element__delete-button');
   elementImage.src = item.link;
   elementImage.alt = item.name;
   elementTitle.textContent = item.name;
   elementLike.addEventListener('click', handleLikeElement);
   elementDelete.addEventListener('click', handleDeleteElement);
   elementImage.addEventListener('click', () => handleOpenPhoto(item.link, item.name));
-  return element;
+  return elementItem;
 }
 
 // Отрисовка элемента
