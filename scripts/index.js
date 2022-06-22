@@ -68,18 +68,6 @@ function openEdit() {
   aboutInput.value = profileAbout.textContent;
 };
 
-// Закрытие popup
-function closeEdit() {
-  popup.classList.remove('popup_opened')
-};
-
-// Закрытие popup при нажатии на любое место, кроме самого popup
-function closePopup(e) {
-  if (e.target === e.currentTarget) {
-      popup.classList.remove('popup_opened');
-  }
-};
-
 // Функция submit
 function formSubmitHandler (evt) {
   evt.preventDefault();
@@ -90,4 +78,5 @@ function formSubmitHandler (evt) {
 }
 
 popupEditButton.addEventListener('click', openEdit);
+popupCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
 
