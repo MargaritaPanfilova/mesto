@@ -146,3 +146,4 @@ addCloseButton.addEventListener('click', () => closePopup(popupAddElement));
 addForm.addEventListener('submit', handleAddElement);
 photoCloseButton.addEventListener('click', () => closePopup(popupPhoto));
 
+
