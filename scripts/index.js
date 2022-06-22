@@ -73,7 +73,7 @@ function openEdit() {
 };
 
 // Сохранение профиля
-function handleProfileSubmit(evt) {
+function handlerProfileSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
@@ -81,12 +81,12 @@ function handleProfileSubmit(evt) {
 }
 
 // Лайк карточки
-function handleLikeElement(evt) {
+function handlerLikeElement(evt) {
   evt.target.classList.toggle('element__like-button_active');
 }
 
 // Удаление карточки
-function handleDeleteElement(evt) {
+function handlerDeleteElement(evt) {
   evt.target.closest('.element').remove();
 }
 
@@ -97,7 +97,7 @@ function prependToSection (title, link) {
 }
 
 // Добавление нового элемента
-function handleAddElement(evt) {
+function handlerAddElement(evt) {
   evt.preventDefault();
   prependToSection(titleInput.value, urlInput.value);
   closePopup(popupAddElement);
@@ -105,7 +105,7 @@ function handleAddElement(evt) {
 }
 
 // Открытие popup photo
-function handleOpenPhoto (image, caption) {
+function handlerOpenPhoto (image, caption) {
   popupImage.src = image;
   popupImage.alt = caption;
   popupCaption.textContent = caption;
@@ -122,8 +122,8 @@ function createElement(item) {
   elementImage.src = item.link;
   elementImage.alt = item.name;
   elementTitle.textContent = item.name;
-  elementLike.addEventListener('click', handleLikeElement);
-  elementDelete.addEventListener('click', handleDeleteElement);
+  elementLike.addEventListener('click', handlerLikeElement);
+  elementDelete.addEventListener('click', handlerDeleteElement);
   elementImage.addEventListener('click', () => handleOpenPhoto(item.link, item.name));
   return elementItem;
 }
@@ -140,10 +140,10 @@ renderElement();
 
 popupEditButton.addEventListener('click', openEdit);
 popupCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
-formEdit.addEventListener('submit', handleProfileSubmit);
+formEdit.addEventListener('submit', handlerProfileSubmit);
 addButton.addEventListener('click', () => openPopup(popupAddElement));
 addCloseButton.addEventListener('click', () => closePopup(popupAddElement));
-addForm.addEventListener('submit', handleAddElement);
+addForm.addEventListener('submit', handlerAddElement);
 photoCloseButton.addEventListener('click', () => closePopup(popupPhoto));
 
 
