@@ -29,8 +29,8 @@ const initialCards = [
 
 // Переменные редактирования профиля
 const popupEditProfile = document.querySelector('.popup_profile');
-const popupEditButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = document.querySelector('.popup__close-button-profile');
+const editButton = document.querySelector('.profile__edit-button');
+const editCloseButton = document.querySelector('.popup__close-button-profile');
 const formEdit = document.querySelector('.popup__form_edit');
 const nameInput = formEdit.querySelector('.popup__input_value_name');
 const aboutInput = formEdit.querySelector('.popup__input_value_about');
@@ -138,8 +138,8 @@ function renderElement() {
 
 renderElement();
 
-popupEditButton.addEventListener('click', openEdit);
-popupCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
+editButton.addEventListener('click', openEdit);
+editCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
 formEdit.addEventListener('submit', handlerProfileSubmit);
 addButton.addEventListener('click', () => openPopup(popupAddElement));
 addCloseButton.addEventListener('click', () => closePopup(popupAddElement));
