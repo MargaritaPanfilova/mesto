@@ -1,7 +1,7 @@
 // Переменные редактирования профиля
 const popupEditProfile = document.querySelector('.popup_profile');
-const editButton = document.querySelector('.profile__edit-button');
-const editCloseButton = document.querySelector('.popup__close-button-profile');
+const profileEditButton = document.querySelector('.profile__edit-button');
+const profileCloseButton = document.querySelector('.popup__close-button-profile');
 const formEdit = document.querySelector('.popup__form_edit');
 const nameInput = formEdit.querySelector('.popup__input_value_name');
 const aboutInput = formEdit.querySelector('.popup__input_value_about');
@@ -10,11 +10,11 @@ const profileAbout = document.querySelector('.profile__about');
 
 // Переменные добавления карточки
 const popupAddElement = document.querySelector('.popup_element');
-const addButton = document.querySelector('.profile__add-button');
-const addCloseButton = document.querySelector('.popup__close-button-element');
-const addForm = document.querySelector('.popup__form_add');
-const titleInput = addForm.querySelector('.popup__input_value_title');
-const urlInput = addForm.querySelector('.popup__input_value_url');
+const elementAddButton = document.querySelector('.profile__add-button');
+const elementCloseButton = document.querySelector('.popup__close-button-element');
+const formAdd = document.querySelector('.popup__form_add');
+const titleInput = formAdd.querySelector('.popup__input_value_title');
+const urlInput = formAdd.querySelector('.popup__input_value_url');
 
 // Переменные popup с картинкой
 const popupPhoto = document.querySelector('.popup_photo');
@@ -63,7 +63,7 @@ function handlerDeleteElement(evt) {
 
 //Добавление element в html
 function prependToSection (title, link) {
-  const newElement = createElement({name:title, link:link});
+  const newElement = createCard({name:title, link:link});
   elementsSection.prepend(newElement);
 }
 
@@ -72,7 +72,7 @@ function handlerAddElement(evt) {
   evt.preventDefault();
   prependToSection(titleInput.value, urlInput.value);
   closePopup(popupAddElement);
-  addForm.reset();
+  formAdd.reset();
 }
 
 // Открытие popup photo
@@ -84,7 +84,7 @@ function handlerOpenPhoto (image, caption) {
 }
 
 // Создание элемента
-function createElement(item) {
+function createCard(item) {
   const elementItem = templateElement.querySelector('.element').cloneNode(true);
   const elementImage = elementItem.querySelector('.element__image');
   const elementTitle = elementItem.querySelector('.element__title');
@@ -100,21 +100,21 @@ function createElement(item) {
 }
 
 // Отрисовка элемента
-function renderElement() {
+function renderCard() {
   const elementList = initialCards.map((item) => {
-    return createElement(item);
+    return createCard(item);
   });
   elementsSection.append(...elementList);
 }
 
-renderElement();
+renderCard();
 
-editButton.addEventListener('click', openEdit);
-editCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
+profileEditButton.addEventListener('click', openEdit);
+profileCloseButton.addEventListener('click', () => closePopup(popupEditProfile));
 formEdit.addEventListener('submit', handlerProfileSubmit);
-addButton.addEventListener('click', () => openPopup(popupAddElement));
-addCloseButton.addEventListener('click', () => closePopup(popupAddElement));
-addForm.addEventListener('submit', handlerAddElement);
+elementAddButton.addEventListener('click', () => openPopup(popupAddElement));
+elementCloseButton.addEventListener('click', () => closePopup(popupAddElement));
+formAdd.addEventListener('submit', handlerAddElement);
 photoCloseButton.addEventListener('click', () => closePopup(popupPhoto));
 
 
