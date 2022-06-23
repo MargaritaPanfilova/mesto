@@ -53,7 +53,7 @@ const photoCloseButton = document.querySelector('.popup__close-button-photo');
 
 // Переменные element template
 const templateElement = document.querySelector('.element-template').content;
-const elements = document.querySelector('.elements');
+const elementsSection = document.querySelector('.elements');
 
 // Открытие всех popup
 function openPopup(popup) {
@@ -93,7 +93,7 @@ function handlerDeleteElement(evt) {
 //Добавление element в html
 function prependToSection (title, link) {
   const newElement = createElement({name:title, link:link});
-  newElement.prepend;
+  elementsSection.prepend(newElement);
 }
 
 // Добавление нового элемента
@@ -124,7 +124,7 @@ function createElement(item) {
   elementTitle.textContent = item.name;
   elementLike.addEventListener('click', handlerLikeElement);
   elementDelete.addEventListener('click', handlerDeleteElement);
-  elementImage.addEventListener('click', () => handleOpenPhoto(item.link, item.name));
+  elementImage.addEventListener('click', () => handlerOpenPhoto(item.link, item.name));
   return elementItem;
 }
 
@@ -133,7 +133,7 @@ function renderElement() {
   const elementList = initialCards.map((item) => {
     return createElement(item);
   });
-  elements.append(...elementList);
+  elementsSection.append(...elementList);
 }
 
 renderElement();
